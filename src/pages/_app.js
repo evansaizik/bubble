@@ -4,11 +4,14 @@ import MainLayout from '../../components/UI/MainLayout';
 
 export default function App({ Component, pageProps }) {
   const router = useRouter();
-  const {pathname} = router;
-  console.log(pathname)
-  // console.log(pageProps)
+  const { pathname } = router;
 
-  if (pathname === '/feeds') {
+  if (
+    pathname === '/feeds' ||
+    pathname === '/messages' ||
+    pathname === '/friends' ||
+    pathname === '/notifications'
+  ) {
     return (
       <ChakraProvider>
         <MainLayout>
