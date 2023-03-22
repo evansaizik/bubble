@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+}
+.feed {
+  width: 100%;
+}
+
+.sidebar-left,
+.sidebar-right {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    height: 100vh;
+  }
+  .feed {
+    display: block;
+    grid-column: span 2;
+  }
+  .sidebar-left,
+  .sidebar-right {
+    display: block;
+    grid-column: span 1;
+  }
+}

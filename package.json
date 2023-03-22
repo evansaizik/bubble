@@ -1,6 +1,7 @@
 {
   "name": "charger",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +10,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.5.2",
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@radix-ui/react-icons": "^1.3.0",
+    "framer-motion": "^10.8.4",
     "next": "13.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
