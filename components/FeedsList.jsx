@@ -19,11 +19,14 @@ import {
   HeartIcon,
   PaperPlaneIcon,
 } from '@radix-ui/react-icons';
+import PostUserDetails from './PostUserDetails';
+import PostEngagements from './PostEngagements';
 
 const FeedsList = () => {
   return (
     <Box as='ul' w={{ base: '90%', md: '100%' }}>
       <Box as='li' mb='40px' w='100%' listStyleType='none'>
+        <PostUserDetails />
         <Image src={george} width='100%' height='100%' />
         <br />
         <Text
@@ -37,6 +40,7 @@ const FeedsList = () => {
           layout should be displayed now lets see if this layout will work as
           expected
         </Text>
+        <PostEngagements />
         <Box as='section'>
           <Grid templateColumns={'repeat(3, 1fr)'}>
             <Button bg='transparent'>
@@ -54,7 +58,7 @@ const FeedsList = () => {
             <Button bg='transparent'>
               <HStack>
                 <Icon
-                  transform='rotate(-40deg) translateY(-5px) translateX(-2px)'
+                  transform='rotate(-40deg) translateY(1px) translateX(6px)'
                   w='20px'
                   h='20px'
                   as={PaperPlaneIcon}
@@ -67,6 +71,7 @@ const FeedsList = () => {
         <Divider />
       </Box>
       <Box as='li' mb='40px' listStyleType='none'>
+        <PostUserDetails />
         <Image src={pex} width='100%' height='100%' />
         <br />
         <Text
@@ -80,6 +85,7 @@ const FeedsList = () => {
           layout should be displayed now lets see if this layout will work as
           expected
         </Text>
+        <PostEngagements />
         <Box as='section'>
           <Grid templateColumns={'repeat(3, 1fr)'}>
             <Button bg='transparent'>
@@ -97,7 +103,7 @@ const FeedsList = () => {
             <Button bg='transparent'>
               <HStack>
                 <Icon
-                  transform='rotate(-40deg) translateY(-5px) translateX(-2px)'
+                  transform='rotate(-40deg) translateY(1px) translateX(6px)'
                   w='20px'
                   h='20px'
                   as={PaperPlaneIcon}
@@ -110,6 +116,7 @@ const FeedsList = () => {
         <Divider />
       </Box>
       <Box as='li' mb='40px' listStyleType='none'>
+        <PostUserDetails />
         <Image src={andrea} width='100%' height='100%' />
         <br />
         <Text
@@ -123,6 +130,7 @@ const FeedsList = () => {
           layout should be displayed now lets see if this layout will work as
           expected
         </Text>
+        <PostEngagements />
         <Box as='section'>
           <Grid templateColumns={'repeat(3, 1fr)'}>
             <Button bg='transparent'>
@@ -140,7 +148,7 @@ const FeedsList = () => {
             <Button bg='transparent'>
               <HStack>
                 <Icon
-                  transform='rotate(-40deg) translateY(-5px) translateX(-2px)'
+                  transform='rotate(-40deg) translateY(1px) translateX(6px)'
                   w='20px'
                   h='20px'
                   as={PaperPlaneIcon}

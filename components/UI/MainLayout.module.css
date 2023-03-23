@@ -4,12 +4,10 @@
 .feed {
   width: 100%;
 }
-
 .sidebar-left,
 .sidebar-right {
   display: none;
 }
-
 .link {
   display: flex;
   flex-direction: column;
@@ -23,10 +21,15 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
     height: 100vh;
+    position: static;
   }
   .feed {
     display: block;
     grid-column: span 2;
+    overflow: scroll;
+  }
+  .feed::-webkit-scrollbar {
+    display: none;
   }
   .sidebar-left,
   .sidebar-right {

@@ -1,4 +1,4 @@
-import { Box, Flex, Text } from '@chakra-ui/layout';
+import { Flex, Text } from '@chakra-ui/layout';
 import { Avatar, Button, Input, Icon } from '@chakra-ui/react';
 import { ImageIcon, SewingPinFilledIcon } from '@radix-ui/react-icons';
 import classes from './Feeds.module.css';
@@ -31,7 +31,7 @@ const Feeds = () => {
             alignItems={'center'}
           >
             <Icon as={ImageIcon} />
-            <small>Add photo</small>
+            <Text as='small'>Add photo</Text>
           </Flex>
           <Flex
             as={'button'}
@@ -40,7 +40,7 @@ const Feeds = () => {
             alignItems={'center'}
           >
             <Icon as={SewingPinFilledIcon} />
-            <small>location</small>
+            <Text as='small'>location</Text>
           </Flex>
         </Flex>
         <Button bg='lightblue'>post</Button>
