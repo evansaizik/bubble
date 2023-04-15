@@ -1,7 +1,7 @@
 import { Flex, Text } from '@chakra-ui/layout';
 import { Avatar, Button, Input, Icon } from '@chakra-ui/react';
 import { ImageIcon, SewingPinFilledIcon } from '@radix-ui/react-icons';
-import classes from './Feeds.module.css';
+// import classes from './Feeds.module.css';
 import FeedsList from './FeedsList';
 
 const Feeds = () => {

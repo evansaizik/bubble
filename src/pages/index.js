@@ -1,5 +1,7 @@
-const index = () => {
-  return <h1>Index page</h1>
-}
+import Signup from '../../components/Signup';
 
-export default index
+const index = () => {
+  return <h1>This page is under construction!</h1>;
+};
+
+export default index;

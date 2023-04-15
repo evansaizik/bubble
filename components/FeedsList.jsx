@@ -6,7 +6,6 @@ import {
   Grid,
   Text,
   Icon,
-  IconButton,
   HStack,
 } from '@chakra-ui/react';
 import george from '../src/Assets/george.jpg';
@@ -14,8 +13,6 @@ import pex from '../src/Assets/pex.jpg';
 import andrea from '../src/Assets/andrea.jpg';
 import {
   ChatBubbleIcon,
-  CheckIcon,
-  HeartFilledIcon,
   HeartIcon,
   PaperPlaneIcon,
 } from '@radix-ui/react-icons';
