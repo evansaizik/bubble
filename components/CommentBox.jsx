@@ -6,9 +6,13 @@ import {
 } from '@chakra-ui/react';
 import { Camera, Send } from 'iconsax-react';
 
-const CommentBox = ({ sendMessage }) => {
+const CommentBox = ({ commentBox }) => {
   return (
-    <InputGroup w={'99%'} margin={'auto'} display={'flex'}>
+    <InputGroup
+      w={'99%'}
+      margin={'auto'}
+      display={commentBox ? 'flex' : 'none'}
+    >
       <Input
         as='textarea'
         border={'2px solid #D2DED5'}
@@ -32,7 +36,6 @@ const CommentBox = ({ sendMessage }) => {
           bg={'transparent'}
           _hover={{ bg: 'transparent' }}
           icon={<Send />}
-          onClick={() => sendMessage((prev) => !prev)}
         />
       </InputRightElement>
     </InputGroup>

@@ -52,49 +52,49 @@ const FeedsList = () => {
             comments={post.comments}
             shares={post.shares}
           />
-          {!commentBox && (
-            <Box as='section'>
-              <Grid templateColumns={'repeat(3, 1fr)'}>
-                <Button
-                  bg='transparent'
-                  _hover={{ bg: 'none' }}
-                  onClick={() => setLiked((prev) => !prev)}
-                >
-                  <HStack>
-                    <Icon
-                      w='20px'
-                      h='20px'
-                      color={liked ? 'red' : 'black'}
-                      as={liked ? HeartFilledIcon : HeartIcon}
-                    />
-                    <Text>like</Text>
-                  </HStack>
-                </Button>
-                <Button
-                  bg='transparent'
-                  _hover={{ bg: 'none' }}
-                  onClick={() => setCommentBox((prev) => !prev)}
-                >
-                  <HStack>
-                    <Icon w='20px' h='20px' as={ChatBubbleIcon} />
-                    <Text>comment</Text>
-                  </HStack>
-                </Button>
-                <Button bg='transparent' _hover={{ bg: 'none' }}>
-                  <HStack>
-                    <Icon
-                      transform='rotate(-40deg) translateY(1px) translateX(6px)'
-                      w='20px'
-                      h='20px'
-                      as={PaperPlaneIcon}
-                    />
-                    <Text>share</Text>
-                  </HStack>
-                </Button>
-              </Grid>
-            </Box>
-          )}
-          {commentBox && <CommentBox sendMessage={setCommentBox} />}
+          <Box as='section'>
+            <Grid templateColumns={'repeat(3, 1fr)'}>
+              <Button
+                bg='transparent'
+                _hover={{ bg: 'none' }}
+                onClick={() => setLiked((prev) => !prev)}
+              >
+                <HStack>
+                  <Icon
+                    w='20px'
+                    h='20px'
+                    color={liked ? 'red' : 'black'}
+                    as={liked ? HeartFilledIcon : HeartIcon}
+                  />
+                  <Text>like</Text>
+                </HStack>
+              </Button>
+              <Button
+                bg='transparent'
+                _hover={{ bg: 'none' }}
+                onClick={(e) => {
+                  setCommentBox((prev) => !prev);
+                }}
+              >
+                <HStack>
+                  <Icon w='20px' h='20px' as={ChatBubbleIcon} />
+                  <Text>comment</Text>
+                </HStack>
+              </Button>
+              <Button bg='transparent' _hover={{ bg: 'none' }}>
+                <HStack>
+                  <Icon
+                    transform='rotate(-40deg) translateY(1px) translateX(6px)'
+                    w='20px'
+                    h='20px'
+                    as={PaperPlaneIcon}
+                  />
+                  <Text>share</Text>
+                </HStack>
+              </Button>
+            </Grid>
+          </Box>
+          <CommentBox commentBox={commentBox} />
           <Divider />
         </Box>
       ))}
