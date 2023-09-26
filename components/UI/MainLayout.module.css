@@ -27,6 +27,7 @@
     display: block;
     grid-column: span 2;
     overflow: scroll;
+    scrollbar-width: none;
   }
   .feed::-webkit-scrollbar {
     display: none;

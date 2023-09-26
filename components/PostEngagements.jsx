@@ -1,19 +1,23 @@
 import { Grid, Icon, Box, Text, Flex } from '@chakra-ui/react';
-import { ChatBubbleIcon, HeartFilledIcon, PaperPlaneIcon } from '@radix-ui/react-icons';
+import {
+  ChatBubbleIcon,
+  HeartFilledIcon,
+  PaperPlaneIcon,
+} from '@radix-ui/react-icons';
 
-const PostEngagements = () => {
+const PostEngagements = ({ likes, comments, shares }) => {
   return (
     <Grid w='35%' my='10px' templateColumns='repeat(3, 1fr)'>
       <Flex gap='5px'>
-        <Text as='small'>30</Text>
+        <Text as='small'>{likes}</Text>
         <Icon color='red' as={HeartFilledIcon} />
       </Flex>
       <Flex gap='5px'>
-        <Text as='small'>22</Text>
+        <Text as='small'>{comments}</Text>
         <Icon as={ChatBubbleIcon} />
       </Flex>
       <Flex gap='5px'>
-        <Text as='small'>8</Text>
+        <Text as='small'>{shares}</Text>
         <Icon
           transform='rotate(-40deg) translateY(0px) translateX(0px)'
           w='15px'

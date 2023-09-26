@@ -7,7 +7,7 @@ export default function App({ Component, pageProps }) {
   const router = useRouter();
   const { pathname } = router;
 
-  if (pathname === '/signup' || pathname === '/login') {
+  if (pathname === '/' || pathname === '/login') {
     return (
       <ChakraProvider>
         <SignLayout>

@@ -53,7 +53,7 @@ const Login = () => {
         <p>
           forgot password? <Link href='password'>Click here</Link>
         </p>
-        <Link href='signup'>Back to Sign up page</Link>
+        <Link href='/'>Back to Sign up page</Link>
       </div>
     </>
   );
