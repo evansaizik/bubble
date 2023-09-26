@@ -25,7 +25,7 @@ const FeedsList = () => {
   return (
     <Box as='ul' w={{ base: '90%', md: '100%' }}>
       {feedsData.map((post) => (
-        <Box as='li' mb='40px' w='100%' listStyleType='none'>
+        <Box key={post.id} as='li' mb='40px' w='100%' listStyleType='none'>
           <PostUserDetails time={post.postedAt} name={post.name} />
           <Image src={post.image} alt='photo' width='100%' height='100%' />
           <br />
