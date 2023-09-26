@@ -1,6 +1,6 @@
 import { Flex, Text } from '@chakra-ui/layout';
 import { Avatar, Button, Input, Icon } from '@chakra-ui/react';
-import { ImageIcon, SewingPinFilledIcon } from '@radix-ui/react-icons';
+import { Camera, Location } from 'iconsax-react';
 import FeedsList from './FeedsList';
 
 const Feeds = () => {
@@ -29,7 +29,8 @@ const Feeds = () => {
             justifyContent='center'
             alignItems={'center'}
           >
-            <Icon as={ImageIcon} />
+            {/* <Icon as={ImageIcon} /> */}
+            <Camera />
             <Text as='small'>Add photo</Text>
           </Flex>
           <Flex
@@ -38,8 +39,9 @@ const Feeds = () => {
             justifyContent='center'
             alignItems={'center'}
           >
-            <Icon as={SewingPinFilledIcon} />
-            <Text as='small'>location</Text>
+            {/* <Icon as={SewingPinFilledIcon} /> */}
+            <Location />
+            <Text as='small'> Share location</Text>
           </Flex>
         </Flex>
         <Button bg='lightblue'>post</Button>
