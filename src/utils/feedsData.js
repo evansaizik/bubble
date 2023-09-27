@@ -14,6 +14,16 @@ const feedsData = [
     shares: '5',
   },
   {
+    id: 'uiioamhgml',
+    name: 'Sandra Irabor',
+    post: "Dollar is 1000 naira currently but i've chosen to mind my business 😭😭😭😭😭",
+    postedAt: 'yesterday',
+    // image: '',
+    likes: '221',
+    comments: '113',
+    shares: '55',
+  },
+  {
     id: 'llavllopa',
     name: 'Samson Uche',
     post: 'Bon Voyage to my humble self 🚌',

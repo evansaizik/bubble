@@ -1,7 +1,8 @@
 import { Flex, Text } from '@chakra-ui/layout';
-import { Avatar, Button, Input, Icon } from '@chakra-ui/react';
+import { Avatar, Button, Input, Box } from '@chakra-ui/react';
 import { Camera, Location } from 'iconsax-react';
 import FeedsList from './FeedsList';
+import feedsData from '../src/utils/feedsData';
 
 const Feeds = () => {
   return (
@@ -46,7 +47,11 @@ const Feeds = () => {
         </Flex>
         <Button bg='lightblue'>post</Button>
       </Flex>
-      <FeedsList />
+      <Box as='ul' w={{ base: '90%', md: '100%' }}>
+        {feedsData.map((post) => (
+          <FeedsList post={post} />
+        ))}
+      </Box>
     </Flex>
   );
 };

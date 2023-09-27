@@ -20,7 +20,7 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    height: 100vh;
+    height: 92.5vh;
     position: static;
   }
   .feed {

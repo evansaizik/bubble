@@ -6,7 +6,7 @@ import {
 } from '@chakra-ui/react';
 import { Camera, Send } from 'iconsax-react';
 
-const CommentBox = ({ commentBox }) => {
+const CommentBox = ({ commentBox, showCommentBox }) => {
   return (
     <InputGroup
       w={'99%'}
@@ -36,6 +36,7 @@ const CommentBox = ({ commentBox }) => {
           bg={'transparent'}
           _hover={{ bg: 'transparent' }}
           icon={<Send />}
+          onClick={() => showCommentBox((prev) => !prev)}
         />
       </InputRightElement>
     </InputGroup>
