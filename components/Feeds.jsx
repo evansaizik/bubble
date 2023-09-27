@@ -30,7 +30,6 @@ const Feeds = () => {
             justifyContent='center'
             alignItems={'center'}
           >
-            {/* <Icon as={ImageIcon} /> */}
             <Camera />
             <Text as='small'>Add photo</Text>
           </Flex>
@@ -40,7 +39,6 @@ const Feeds = () => {
             justifyContent='center'
             alignItems={'center'}
           >
-            {/* <Icon as={SewingPinFilledIcon} /> */}
             <Location />
             <Text as='small'> Share location</Text>
           </Flex>
@@ -49,7 +47,7 @@ const Feeds = () => {
       </Flex>
       <Box as='ul' w={{ base: '90%', md: '100%' }}>
         {feedsData.map((post) => (
-          <FeedsList post={post} />
+          <FeedsList key={post.id} post={post} />
         ))}
       </Box>
     </Flex>

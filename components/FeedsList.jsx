@@ -18,17 +18,24 @@ import PostUserDetails from './PostUserDetails';
 import PostEngagements from './PostEngagements';
 import { useState } from 'react';
 import CommentBox from './CommentBox';
+import placeholder from '../src/Assets/placeholder.png'
 
 const FeedsList = ({ post }) => {
   const [liked, setLiked] = useState(false);
   const [commentBox, setCommentBox] = useState(false);
 
   return (
-    <Box key={post?.id} as='li' mb='40px' w='100%' listStyleType='none'>
+    <Box as='li' mb='40px' w='100%' listStyleType='none'>
       <PostUserDetails time={post?.postedAt} name={post?.name} />
       {post.image && (
         <Box mb={'15px'}>
-          <Image src={post.image} alt='photo' width='100%' height='100%' />
+          <Image
+            priority={true}
+            src={post.image}
+            alt='photo'
+            width='100%'
+            height='100%'
+          />
         </Box>
       )}
       <Text
