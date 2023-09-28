@@ -1,4 +1,4 @@
-import Feeds from '../../components/Feeds';
+import Feeds from '../../../components/Feeds';
 
 const feeds = () => {
   return <Feeds />;

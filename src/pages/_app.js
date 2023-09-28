@@ -19,6 +19,7 @@ export default function App({ Component, pageProps }) {
 
   if (
     pathname === '/feeds' ||
+    pathname === '/feeds/[id]' ||
     pathname === '/messages' ||
     pathname === '/friends' ||
     pathname === '/notifications'
