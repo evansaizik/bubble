@@ -28,7 +28,7 @@ const PostId = () => {
   const post = feedsData.find((post) => post.id === postId);
 
   return (
-    <Box mt={'10px'}>
+    <Box px={'16px'} mt={'10px'}>
       <Box mb='40px' w='100%' listStyleType='none'>
         <PostUserDetails time={post?.postedAt} name={post?.name} />
         <Box>

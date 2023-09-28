@@ -10,7 +10,7 @@ const Feeds = () => {
     <Flex as={'main'} mt='4' gap={6} direction='column' alignItems='center'>
       {/* Avatar and Input */}
       <Flex
-        w={{ base: '90%', md: '100%' }}
+        w={{ base: '95%', md: '100%' }}
         gap={2}
         justifyContent='center'
         as={'section'}
@@ -20,7 +20,7 @@ const Feeds = () => {
       </Flex>
       <Flex
         gap={4}
-        w={{ base: '90%', md: '100%' }}
+        w={{ base: '95%', md: '100%' }}
         justifyContent='space-between'
       >
         <Flex as={'section'} gap='30px'>
@@ -45,7 +45,7 @@ const Feeds = () => {
         </Flex>
         <Button bg='lightblue'>post</Button>
       </Flex>
-      <Box as='ul' w={{ base: '90%', md: '100%' }}>
+      <Box as='ul' w={{ base: '95%', md: '100%' }}>
         {feedsData.map((post) => (
           <FeedsList key={post.id} post={post} />
         ))}
