@@ -12,7 +12,7 @@ const CommentBox = ({ commentBox, showCommentBox }) => {
 
   return (
     <InputGroup
-      w={'99%'}
+      w={'100%'}
       margin={'auto'}
       display={commentBox ? 'flex' : 'none'}
     >
