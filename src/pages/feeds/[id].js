@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { ChatBubbleIcon } from '@radix-ui/react-icons';
 import {
   Box,
   Text,
@@ -20,15 +21,18 @@ import {
   PaperPlaneIcon,
 } from '@radix-ui/react-icons';
 import CommentBox from '../../../components/CommentBox';
+import Comments from '../../../components/UI/Comments';
+import comments from '../../utils/comments';
 
 const PostId = () => {
   const router = useRouter();
   const [liked, setLiked] = useState(false);
+  const [commentBox, setCommentBox] = useState(false);
   const postId = router.query.id;
   const post = feedsData.find((post) => post.id === postId);
 
   return (
-    <Box px={'12px'} mt={'10px'}>
+    <Box px={'10px'} mt={'10px'}>
       <Box mb='40px' w='100%' listStyleType='none'>
         <PostUserDetails time={post?.postedAt} name={post?.name} />
         <Box>
@@ -60,7 +64,7 @@ const PostId = () => {
           />
         </Box>
         <Box as='section'>
-          <Grid templateColumns={'repeat(2, 1fr)'}>
+          <Grid templateColumns={'repeat(3, 1fr)'}>
             <Button
               bg='transparent'
               _hover={{ bg: 'none' }}
@@ -76,6 +80,18 @@ const PostId = () => {
                 <Text>like</Text>
               </HStack>
             </Button>
+            <Button
+              bg='transparent'
+              _hover={{ bg: 'none' }}
+              onClick={(e) => {
+                setCommentBox((prev) => !prev);
+              }}
+            >
+              <HStack>
+                <Icon w='20px' h='20px' as={ChatBubbleIcon} />
+                <Text>comment</Text>
+              </HStack>
+            </Button>
             <Button bg='transparent' _hover={{ bg: 'none' }}>
               <HStack>
                 <Icon
@@ -88,17 +104,17 @@ const PostId = () => {
               </HStack>
             </Button>
           </Grid>
-          <UnorderedList listStyleType={'none'}>
-            <ListItem>hello</ListItem>
-            <ListItem>hello</ListItem>
-            <ListItem>hello</ListItem>
-            <ListItem>hello</ListItem>
-            <ListItem>hello</ListItem>
+          <UnorderedList listStyleType={'none'} mt={'10px'}>
+            {comments.map((comment) => (
+              <ListItem key={comment.id}>
+                <Comments comment={comment} />
+              </ListItem>
+            ))}
           </UnorderedList>
         </Box>
       </Box>
       <Box position={'sticky'} w={'100%'} bottom={'0'}>
-        <CommentBox commentBox={true} />
+        <CommentBox commentBox={commentBox} showCommentBox={setCommentBox} />
       </Box>
     </Box>
   );

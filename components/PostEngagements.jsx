@@ -7,7 +7,12 @@ import {
 
 const PostEngagements = ({ likes, comments, shares }) => {
   return (
-    <Grid w='35%' my='10px' templateColumns='repeat(3, 1fr)'>
+    <Grid
+      minW={'150px'}
+      maxW={'150px'}
+      my='10px'
+      templateColumns='repeat(3, 1fr)'
+    >
       <Flex gap='5px'>
         <Text as='small'>{likes}</Text>
         <Icon color='red' as={HeartFilledIcon} />

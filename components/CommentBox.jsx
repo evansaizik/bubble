@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import {
   IconButton,
   Input,
@@ -8,8 +7,6 @@ import {
 import { Camera, Send } from 'iconsax-react';
 
 const CommentBox = ({ commentBox, showCommentBox }) => {
-  const { pathname } = useRouter();
-
   return (
     <InputGroup
       w={'100%'}
@@ -41,7 +38,6 @@ const CommentBox = ({ commentBox, showCommentBox }) => {
           _hover={{ bg: 'transparent' }}
           icon={<Send />}
           onClick={() => {
-            if (pathname === '/feeds/[id]') return;
             showCommentBox((prev) => !prev);
           }}
         />

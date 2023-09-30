@@ -18,14 +18,16 @@
   .container {
     width: 100%;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(7, 1fr);
+    /* grid-template-columns: repeat(4, 1fr); */
     gap: 20px;
     height: 92.5vh;
     position: static;
   }
   .feed {
     display: block;
-    grid-column: span 2;
+    grid-column: span 3;
+    /* grid-column: span 2; */
     overflow: scroll;
     scrollbar-width: none;
   }
@@ -35,6 +37,6 @@
   .sidebar-left,
   .sidebar-right {
     display: block;
-    grid-column: span 1;
+    grid-column: span 2;
   }
 }

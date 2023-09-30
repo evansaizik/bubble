@@ -25,7 +25,7 @@ const MainLayout = ({ children }) => {
             </Heading>
           </Link>
         </GridItem>
-        <Grid as='section' w='100%' h='50px' templateColumns={'repeat(3, 1fr)'}>
+        <Grid as='section' w='130px' h='50px' templateColumns={'repeat(3, 1fr)'}>
           <Flex justifyContent='center' alignItems='center'>
             <Link className={classes.link} href='/messages'>
               <Message />
