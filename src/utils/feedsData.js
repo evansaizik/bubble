@@ -1,7 +1,7 @@
 import george from '../Assets/george.jpg';
 import pex from '../Assets/pex.jpg';
 import andrea from '../Assets/andrea.jpg';
-import leagueTable from '../Assets/leagueTable.jpg'
+import leagueTable from '../Assets/leagueTable.jpg';
 
 const feedsData = [
   {
