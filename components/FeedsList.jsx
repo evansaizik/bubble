@@ -19,6 +19,7 @@ import PostEngagements from './PostEngagements';
 import { useState } from 'react';
 import CommentBox from './CommentBox';
 import { useRouter } from 'next/router';
+import FeedsLayout from './UI/FeedsLayout';
 
 const FeedsList = ({ post }) => {
   const router = useRouter();
@@ -34,16 +35,17 @@ const FeedsList = ({ post }) => {
       <PostUserDetails time={post?.postedAt} name={post?.name} />
       <Box id={post.id} onClick={seeFullPost}>
         {post.image && (
-          <Box mb={'15px'}>
-            <Image
-              id={post.id}
-              priority={true}
-              src={post.image}
-              alt='photo'
-              width='100%'
-              height='100%'
-            />
-          </Box>
+          <FeedsLayout post={post} />
+          // <Box mb={'15px'}>
+          //   <Image
+          //     id={post.id}
+          //     priority={true}
+          //     src={post.image}
+          //     alt='photo'
+          //     width='100%'
+          //     height='100%'
+          //   />
+          // </Box>
         )}
         <Text
           id={post.id}
@@ -81,7 +83,7 @@ const FeedsList = ({ post }) => {
           <Button
             bg='transparent'
             _hover={{ bg: 'none' }}
-            onClick={(e) => {
+            onClick={() => {
               setCommentBox((prev) => !prev);
             }}
           >

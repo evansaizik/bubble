@@ -1,6 +1,7 @@
 import george from '../Assets/george.jpg';
 import pex from '../Assets/pex.jpg';
 import andrea from '../Assets/andrea.jpg';
+import leagueTable from '../Assets/leagueTable.jpg'
 
 const feedsData = [
   {
@@ -8,7 +9,7 @@ const feedsData = [
     name: 'Kelly Aderombi',
     post: "Chilling with my friends, we were at a carnival, I don't think i'll leave this country 🤪😜🥳",
     postedAt: 'just now',
-    image: george,
+    image: [george, pex, andrea, leagueTable],
     likes: '120',
     comments: '40',
     shares: '5',
@@ -18,7 +19,7 @@ const feedsData = [
     name: 'Sandra Irabor',
     post: "Dollar is 1000 naira currently but i've chosen to mind my business 😭😭😭😭😭",
     postedAt: 'yesterday',
-    // image: '',
+    image: [],
     likes: '221',
     comments: '113',
     shares: '55',
@@ -28,7 +29,7 @@ const feedsData = [
     name: 'Samson Uche',
     post: 'Bon Voyage to my humble self 🚌',
     postedAt: '2 hours ago',
-    image: pex,
+    image: [pex],
     likes: '33',
     comments: '11',
     shares: '5',
@@ -38,7 +39,7 @@ const feedsData = [
     name: 'Femi Raymond',
     post: 'Work out session was really fun and vigorous',
     postedAt: 'yesterday',
-    image: andrea,
+    image: [andrea],
     likes: '76',
     comments: '29',
     shares: '30',

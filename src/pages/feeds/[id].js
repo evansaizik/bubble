@@ -11,6 +11,7 @@ import {
   Icon,
   UnorderedList,
   ListItem,
+  GridItem,
 } from '@chakra-ui/react';
 import PostUserDetails from '../../../components/PostUserDetails';
 import PostEngagements from '../../../components/PostEngagements';
@@ -37,15 +38,19 @@ const PostId = () => {
         <PostUserDetails time={post?.postedAt} name={post?.name} />
         <Box>
           {post?.image && (
-            <Box mb={'15px'}>
-              <Image
-                priority={true}
-                src={post?.image}
-                alt='photo'
-                width='100%'
-                height='100%'
-              />
-            </Box>
+            <Grid gap={2} mb={'15px'}>
+              {post.image.map((image, i) => (
+                <GridItem key={i}>
+                  <Image
+                    priority={true}
+                    src={image}
+                    alt='photo'
+                    width='100%'
+                    height='100%'
+                  />
+                </GridItem>
+              ))}
+            </Grid>
           )}
           <Text
             id={post?.id}
