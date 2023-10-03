@@ -1,7 +1,7 @@
 import george from '../Assets/george.jpg';
 import pex from '../Assets/pex.jpg';
 import andrea from '../Assets/andrea.jpg';
-import leagueTable from '../Assets/leagueTable.jpg';
+import girl from '../Assets/girl.jpg';
 
 const feedsData = [
   {
@@ -9,7 +9,7 @@ const feedsData = [
     name: 'Kelly Aderombi',
     post: "Chilling with my friends, we were at a carnival, I don't think i'll leave this country 🤪😜🥳",
     postedAt: 'just now',
-    image: [george, pex, andrea, leagueTable],
+    image: [george, pex, andrea, girl],
     likes: '120',
     comments: '40',
     shares: '5',
