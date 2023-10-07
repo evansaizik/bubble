@@ -1,5 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
+import { Provider } from 'react-redux';
+import store from '../store/store';
 import MainLayout from '../../components/UI/MainLayout';
 import SignLayout from '../../components/UI/SignLayout';
 
@@ -9,11 +11,13 @@ export default function App({ Component, pageProps }) {
 
   if (pathname === '/' || pathname === '/login') {
     return (
-      <ChakraProvider>
-        <SignLayout>
-          <Component {...pageProps} />
-        </SignLayout>
-      </ChakraProvider>
+      <Provider store={store}>
+        <ChakraProvider>
+          <SignLayout>
+            <Component {...pageProps} />
+          </SignLayout>
+        </ChakraProvider>
+      </Provider>
     );
   }
 
@@ -25,17 +29,21 @@ export default function App({ Component, pageProps }) {
     pathname === '/notifications'
   ) {
     return (
-      <ChakraProvider>
-        <MainLayout>
-          <Component {...pageProps} />
-        </MainLayout>
-      </ChakraProvider>
+      <Provider store={store}>
+        <ChakraProvider>
+          <MainLayout>
+            <Component {...pageProps} />
+          </MainLayout>
+        </ChakraProvider>
+      </Provider>
     );
   }
 
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <Provider store={store}>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </Provider>
   );
 }
