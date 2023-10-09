@@ -4,10 +4,10 @@ import { useEffect } from "react";
 const ProtectedRoute = ({ children }) => {
   const router = useRouter();
   useEffect(() => {
-    const accessToken = localStorage.getItem('accessToken');
+    const accessToken = localStorage.getItem('accessToken') || null;
     if (accessToken && (router.pathname === '/' || '/login'))
       router.replace('/feeds');
-    if (!accessToken) router.replace('/login');
+    if (!accessToken && router.pathname !== '/') router.replace('/login');
   }, []);
   
   return <>{children}</>;

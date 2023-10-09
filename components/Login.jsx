@@ -33,9 +33,11 @@ const Login = () => {
 
   if (isSuccess) {
     localStorage.setItem('accessToken', data.accessToken);
+    localStorage.setItem('loggedInUser', JSON.stringify(data.data.user));
+  
     router.replace('/feeds');
   } else if (isError) {
-    console.log(error)
+    console.log(error);
   }
 
   return (

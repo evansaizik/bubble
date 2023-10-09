@@ -2,7 +2,8 @@ import Image from 'next/image';
 import { Grid, GridItem } from '@chakra-ui/react';
 
 const FeedsLayout = ({ post }) => {
-  const imageList = post.image;
+  const imageList = post.media;
+
   return (
     <Grid
       mb={'15px'}
@@ -14,12 +15,13 @@ const FeedsLayout = ({ post }) => {
           <Image
             id={post.id}
             priority={true}
-            src={image}
+            src={`http://localhost:8080/img/${image}`}
             alt='photo'
-            width='100%'
-            height='100%'
+            width={1000}
+            height={1000}
             style={{
               objectFit: 'fill',
+              width: '100%'
             }}
           />
         </GridItem>

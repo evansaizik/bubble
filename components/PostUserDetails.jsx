@@ -6,7 +6,9 @@ const PostUserDetails = ({ time, name }) => {
       <Avatar name={name} />
       <Box>
         <Text fontWeight='bold'>{name}</Text>
-        <Text as='small'>{`Posted ${time}`}</Text>
+        <Text as='small'>{`Posted ${new Date(time).toLocaleDateString('en-US', {
+          dayPeriod: 'long',
+        })}`}</Text>
       </Box>
     </Flex>
   );

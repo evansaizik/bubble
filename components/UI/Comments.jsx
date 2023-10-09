@@ -9,11 +9,11 @@ const Comments = ({ comment }) => {
         justifyContent='start'
         as={'section'}
       >
-        <Avatar src={comment.photo} name={comment.name} size={{ base: 'sm', md: 'md' }} />
+        <Avatar src={comment?.user.photo} name={comment?.user.name} size={{ base: 'sm', md: 'md' }} />
         <Grid>
           <GridItem>
             <Text fontSize={{ base: '13px', md: '16px' }} fontWeight={'bold'}>
-              {comment.name}
+              {comment?.user.name}
             </Text>
           </GridItem>
           <GridItem p={'0'}>

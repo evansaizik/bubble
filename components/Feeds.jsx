@@ -1,10 +1,47 @@
+import { useState } from 'react';
 import { Flex, Text } from '@chakra-ui/layout';
 import { Avatar, Button, Input, Box } from '@chakra-ui/react';
 import { Camera, Location } from 'iconsax-react';
 import FeedsList from './FeedsList';
-import feedsData from '../src/utils/feedsData';
+import {
+  useGetAllPostsQuery,
+  useCreateAPostMutation,
+} from '../src/api/postSlice';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { userSliceActions } from '../src/api/userSlice';
 
 const Feeds = () => {
+  const { data, error, isLoading, isSuccess, isError } = useGetAllPostsQuery();
+  const [createAPost] = useCreateAPostMutation();
+  const [post, setPost] = useState('');
+  const [media, setMedia] = useState(null);
+
+  const postHandler = async () => {
+    if (!media && !post) return;
+
+    const formData = new FormData();
+    formData.append('post', post);
+    formData.append('media', media);
+
+    await createAPost(formData);
+
+    setPost('');
+    setMedia(null);
+  };
+
+  let content;
+
+  if (isLoading) content = <p>Loading...</p>;
+  else if (isError) content = <p>{error}</p>;
+  else if (isSuccess)
+    content = (
+      <>
+        {data.data.posts.map((post) => (
+          <FeedsList key={post.id} post={post} />
+        ))}
+      </>
+    );
+
   return (
     /* Container */
     <Flex as={'main'} mt='4' gap={6} direction='column' alignItems='center'>
@@ -16,7 +53,11 @@ const Feeds = () => {
         as={'section'}
       >
         <Avatar />
-        <Input type='text' />
+        <Input
+          type='text'
+          value={post}
+          onChange={(e) => setPost(e.target.value)}
+        />
       </Flex>
       <Flex
         gap={4}
@@ -31,7 +72,15 @@ const Feeds = () => {
             alignItems={'center'}
           >
             <Camera />
-            <Text as='small'>Add photo</Text>
+            <Text as='label' htmlFor='media'>
+              Add photo
+            </Text>
+            <input
+              id='media'
+              style={{ width: '0px', height: '0px' }}
+              type='file'
+              onChange={(e) => setMedia(e.target.files[0])}
+            />
           </Flex>
           <Flex
             as={'button'}
@@ -43,12 +92,12 @@ const Feeds = () => {
             <Text as='small'> Share location</Text>
           </Flex>
         </Flex>
-        <Button bg='lightblue'>post</Button>
+        <Button bg='lightblue' onClick={postHandler}>
+          post
+        </Button>
       </Flex>
       <Box as='ul' w={{ base: '95%', md: '100%' }}>
-        {feedsData.map((post) => (
-          <FeedsList key={post.id} post={post} />
-        ))}
+        {content}
       </Box>
     </Flex>
   );
