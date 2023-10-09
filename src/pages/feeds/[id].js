@@ -40,7 +40,9 @@ const PostId = () => {
   const post = data?.data?.post;
   const comments = commentData?.data;
 
-  const user = JSON.parse(localStorage.getItem('loggedInUser'));
+  const user = window ? JSON.parse(localStorage.getItem('loggedInUser')) : '';
+
+  console.log(user);
 
   const likedColor = () => {
     return {
@@ -79,8 +81,8 @@ const PostId = () => {
                     priority={true}
                     src={`http://localhost:8080/img/${image}`}
                     alt='photo'
-                    width={100}
-                    height={100}
+                    width={1000}
+                    height={1000}
                     style={{ width: '100%' }}
                   />
                 </GridItem>
