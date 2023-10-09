@@ -40,9 +40,12 @@ const PostId = () => {
   const post = data?.data?.post;
   const comments = commentData?.data;
 
-  const user = window ? JSON.parse(localStorage.getItem('loggedInUser')) : '';
+  const [user, setUser] = useState({})
 
-  console.log(user);
+  useEffect(() => {
+    setUser(JSON.parse(localStorage?.getItem('loggedInUser')));
+    
+  }, []);
 
   const likedColor = () => {
     return {
