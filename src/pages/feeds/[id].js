@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { ChatBubbleIcon } from '@radix-ui/react-icons';
@@ -22,16 +22,14 @@ import {
 } from '@radix-ui/react-icons';
 import CommentBox from '../../../components/CommentBox';
 import Comments from '../../../components/UI/Comments';
-import { useGetAPostQuery } from '../../api/postSlice';
+import { useGetAPostQuery, useReactToPostMutation } from '../../api/postSlice';
 import { useGetCommentsQuery } from '../../api/commentSlice';
 
 const PostId = () => {
   const router = useRouter();
-  const [liked, setLiked] = useState(false);
-  const [commentBox, setCommentBox] = useState(false);
   const postId = router.query.id;
-  const { data, isLoading, isSuccess, error } =
-    useGetAPostQuery(postId);
+  const { data, isLoading, isSuccess, error } = useGetAPostQuery(postId);
+
   const {
     data: commentData,
     isLoading: isLoadingComment,
@@ -40,10 +38,32 @@ const PostId = () => {
   } = useGetCommentsQuery(postId);
 
   const post = data?.data?.post;
-  const comments = commentData?.data
+  const comments = commentData?.data;
+
+  const user = JSON.parse(localStorage.getItem('loggedInUser'));
+
+  const likedColor = () => {
+    return {
+      color: post?.reaction?.find((val) => val?.user === user?._id)
+        ? 'red'
+        : 'black',
+      value: post?.reaction?.find((val) => val?.user === user?._id)
+        ? true
+        : false,
+    };
+  };
+
+  const [reactToPost] = useReactToPostMutation();
+  const [commentBox, setCommentBox] = useState(false);
 
   let content;
   let commentContent;
+
+  const togglePostReaction = async (val) => {
+    const values = { postId, reactionValue: !likedColor().value };
+
+    reactToPost(values);
+  };
 
   if (isLoading) content = 'Loading post';
   else if (isSuccess)
@@ -109,14 +129,14 @@ const PostId = () => {
             <Button
               bg='transparent'
               _hover={{ bg: 'none' }}
-              onClick={() => setLiked((prev) => !prev)}
+              onClick={() => togglePostReaction(post?.id)}
             >
               <HStack>
                 <Icon
                   w='20px'
                   h='20px'
-                  color={liked ? 'red' : 'black'}
-                  as={liked ? HeartFilledIcon : HeartIcon}
+                  color={likedColor().color}
+                  as={likedColor().value ? HeartFilledIcon : HeartIcon}
                 />
                 <Text>like</Text>
               </HStack>
@@ -151,7 +171,11 @@ const PostId = () => {
         </Box>
       </Box>
       <Box position={'sticky'} w={'100%'} bottom={'0'}>
-        <CommentBox postId={postId} commentBox={commentBox} showCommentBox={setCommentBox} />
+        <CommentBox
+          postId={postId}
+          commentBox={commentBox}
+          showCommentBox={setCommentBox}
+        />
       </Box>
     </Box>
   );
