@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {
+  Box,
   IconButton,
   Input,
   InputGroup,
@@ -51,12 +52,14 @@ const CommentBox = ({ postId, commentBox, showCommentBox }) => {
         <label htmlFor='files'>
           <Camera />
         </label>
-        <input
-          id='files'
-          type={'file'}
-          onChange={(e) => setMedia(e.target.files[0])}
-          style={{ width: '0px', height: '0px' }}
-        />
+        <Box display={'none'}>
+          <input
+            id='files'
+            type={'file'}
+            onChange={(e) => setMedia(e.target.files[0])}
+            // style={{ width: '0px', height: '0px' }}
+          />
+        </Box>
         <IconButton
           w={'30px'}
           h={'30px'}

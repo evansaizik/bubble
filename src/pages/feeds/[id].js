@@ -82,7 +82,7 @@ const PostId = () => {
                 <GridItem key={i}>
                   <Image
                     priority={true}
-                    src={`http://localhost:8080/img/${image}`}
+                    src={`https://bubble-fg8r.onrender.com/img/${image}`}
                     alt='photo'
                     width={1000}
                     height={1000}

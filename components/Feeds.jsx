@@ -66,18 +66,19 @@ const Feeds = () => {
       >
         <Flex as={'section'} gap='30px'>
           <Flex
-            as={'button'}
+            as={'label'}
+            htmlFor='media'
             direction={'column'}
             justifyContent='center'
             alignItems={'center'}
           >
             <Camera />
-            <Text as='label' htmlFor='media'>
+            <Text fontSize={'13px'}>
               Add photo
             </Text>
-            <input
+            <Input
               id='media'
-              style={{ width: '0px', height: '0px' }}
+              style={{ display: 'none' }}
               type='file'
               onChange={(e) => setMedia(e.target.files[0])}
             />
