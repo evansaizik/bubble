@@ -15,13 +15,13 @@ const FeedsLayout = ({ post }) => {
           <Image
             id={post.id}
             priority={true}
-            src={`http://localhost:8080/img/${image}`}
+            src={`https://bubble-fg8r.onrender.com/img/${image}`}
             alt='photo'
             width={1000}
             height={1000}
             style={{
               objectFit: 'fill',
-              width: '100%'
+              width: '100%',
             }}
           />
         </GridItem>

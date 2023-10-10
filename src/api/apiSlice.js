@@ -4,7 +4,8 @@ export const apiSlice = createApi({
   reducerPath: 'api',
   tagTypes: ['Posts', 'Comments'],
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:8080/api/v1',
+    baseUrl: 'https://bubble-fg8r.onrender.com/api/v1',
+    // baseUrl: 'http://localhost:8080/api/v1',
     headers: {
       credentials: 'include',
     },
