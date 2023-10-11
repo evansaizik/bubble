@@ -40,8 +40,9 @@ const MainLayout = ({ children }) => {
           <Grid
             as='section'
             w='130px'
+            gap={3}
             h='50px'
-            templateColumns={'repeat(3, 1fr)'}
+            templateColumns={'repeat(4, 1fr)'}
           >
             <Flex justifyContent='center' alignItems='center'>
               <Link className={classes.link} href='/messages'>
