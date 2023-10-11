@@ -8,6 +8,8 @@ export const apiSlice = createApi({
     // baseUrl: 'http://localhost:8080/api/v1',
     headers: {
       credentials: 'include',
+      'Access-Control-Allow-Origin': 'https://bubble-seven.vercel.app',
+      'Access-Control-Allow-Credentials': true,
     },
   }),
   endpoints: (builder) => ({}),
