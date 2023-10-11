@@ -23,10 +23,10 @@ const MainLayout = ({ children }) => {
           position={{ md: 'sticky' }}
           px={'10px'}
           h={'50px'}
-          templateColumns={{ base: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }}
+          templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)' }}
           bg={'blue.400'}
         >
-          <GridItem colSpan={{ base: 2, md: 3 }}>
+          <GridItem colSpan={{ base: 1, md: 3 }}>
             <Link href={'/feeds'}>
               <Heading
                 fontStyle={'italic'}
