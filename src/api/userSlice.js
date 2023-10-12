@@ -25,7 +25,20 @@ export const extendedUserApiSlice = apiSlice.injectEndpoints({
       }),
     }),
     logout: builder.mutation({
-      query: () => '/users/logout',
+      queryFn: async () => {
+        console.log('visited');
+        const log = await fetch(
+          'https://bubble-fg8r.onrender.com/api/v1/users/logout'
+        )
+          .then(() => {
+            window.location.replace(
+              `${window.location.protocol}://${window.location.host}/login`
+            );
+            localStorage.removeItem('accessToken');
+            localStorage.removeItem('loggedInUser');
+          })
+          .then(() => log);
+      },
     }),
   }),
 });
@@ -35,4 +48,4 @@ export const { useLoginMutation, useSignUpMutation, useLogoutMutation } =
 
 export const userSliceActions = userSlice.actions;
 
-export default userSlice.reducer;
+export const userSliceReducer = userSlice.reducer;

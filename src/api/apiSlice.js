@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'http://localhost:8080/api/v1',
+  baseUrl: 'https://bubble-fg8r.onrender.com/api/v1',
   credentials: 'include',
   prepareHeaders: (headers, { getState }) => {
     const accessToken = localStorage.getItem('accessToken');
@@ -16,7 +16,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
 
   if (result?.error?.status === 401) {
-    return result?.error
+    return result?.error;
   }
 
   if (result?.error?.status === 403) {
@@ -28,8 +28,11 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       localStorage.setItem('accessToken', refreshToken.data.accessToken);
 
       result = await baseQuery(args, api, extraOptions);
-    } else if (refreshToken?.error?.status === 403) {
-      return result = refreshToken?.error
+    } else if (
+      refreshToken?.error?.status === 403 ||
+      refreshToken?.error?.status === 401
+    ) {
+      api.dispatch(api.endpoints.logout());
     }
   }
   return result;

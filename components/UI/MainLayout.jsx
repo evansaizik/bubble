@@ -12,10 +12,10 @@ const MainLayout = ({ children }) => {
   const [logout] = useLogoutMutation();
 
   const logoutHandler = () => {
-    localStorage.removeItem('loggedInUser');
-    localStorage.removeItem('accessToken');
+    // localStorage.removeItem('loggedInUser');
+    // localStorage.removeItem('accessToken');
     logout()
-    router.replace('/login');
+    // router.replace('/login');
   };
 
   return (
