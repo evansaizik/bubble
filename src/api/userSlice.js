@@ -31,9 +31,7 @@ export const extendedUserApiSlice = apiSlice.injectEndpoints({
           'https://bubble-fg8r.onrender.com/api/v1/users/logout'
         )
           .then(() => {
-            window.location.replace(
-              `${window.location.protocol}://${window.location.host}/login`
-            );
+            window.location.replace('/login');
             localStorage.removeItem('accessToken');
             localStorage.removeItem('loggedInUser');
           })
