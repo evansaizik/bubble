@@ -25,9 +25,6 @@ export const extendedPostApi = apiSlice.injectEndpoints({
       query: (id) => ({
         url: `/posts/${id}`,
         method: 'GET',
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
       }),
       providesTags: (result) =>
         result ? [{ type: 'Posts', id: result.data.post._id }] : [],
@@ -37,9 +34,6 @@ export const extendedPostApi = apiSlice.injectEndpoints({
         url: '/posts',
         method: 'POST',
         body: val,
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
       }),
       invalidatesTags: (result, error, arg) => [{ type: 'Posts', id: arg._id }],
     }),
@@ -48,9 +42,6 @@ export const extendedPostApi = apiSlice.injectEndpoints({
         url: `/posts/${val.postId}/reaction`,
         method: 'PATCH',
         body: val,
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
       }),
       invalidatesTags: (result, error, arg) => [{ type: 'Posts', id: arg.id }],
     }),

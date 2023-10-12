@@ -6,9 +6,6 @@ const extendedCommentApiSlice = apiSlice.injectEndpoints({
       query: (id) => ({
         url: `/posts/${id}/comments`,
         method: 'GET',
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
       }),
       providesTags: (result, error, arg) =>
         result?.data
@@ -26,9 +23,6 @@ const extendedCommentApiSlice = apiSlice.injectEndpoints({
         url: `/posts/${postId}/comments`,
         method: 'POST',
         body: formData,
-        headers: {
-          authorization: `Bearer ${localStorage.getItem('accessToken')}`,
-        },
       }),
       invalidatesTags: (result, error, arg) => [
         { type: 'Posts', id: arg.id },

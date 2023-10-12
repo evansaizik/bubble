@@ -5,13 +5,16 @@ import { Logout, Message, Notification, People } from 'iconsax-react';
 import ProtectedRoute from '../ProtectedRoute';
 import { Button } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
+import { useLogoutMutation } from '../../src/api/userSlice';
 
 const MainLayout = ({ children }) => {
   const router = useRouter();
+  const [logout] = useLogoutMutation();
 
   const logoutHandler = () => {
     localStorage.removeItem('loggedInUser');
-    localStorage.removeItem('accessToken')
+    localStorage.removeItem('accessToken');
+    logout()
     router.replace('/login');
   };
 

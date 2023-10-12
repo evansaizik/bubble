@@ -24,10 +24,14 @@ export const extendedUserApiSlice = apiSlice.injectEndpoints({
         body,
       }),
     }),
+    logout: builder.mutation({
+      query: () => '/users/logout',
+    }),
   }),
 });
 
-export const { useLoginMutation, useSignUpMutation } = extendedUserApiSlice;
+export const { useLoginMutation, useSignUpMutation, useLogoutMutation } =
+  extendedUserApiSlice;
 
 export const userSliceActions = userSlice.actions;
 
