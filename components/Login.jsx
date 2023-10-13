@@ -37,7 +37,7 @@ const Login = () => {
   
     router.replace('/feeds');
   } else if (isError) {
-    console.log(error);
+    // console.log(error);
   }
 
   return (

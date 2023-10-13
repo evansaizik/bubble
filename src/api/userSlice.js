@@ -26,7 +26,6 @@ export const extendedUserApiSlice = apiSlice.injectEndpoints({
     }),
     logout: builder.mutation({
       queryFn: async () => {
-        console.log('visited');
         const log = await fetch(
           'https://bubble-fg8r.onrender.com/api/v1/users/logout'
         )

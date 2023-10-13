@@ -16,7 +16,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
 
   if (result?.error?.status === 401) {
-    return result?.error;
+    localStorage.removeItem('loggedInUser');
+    window.location.replace('/login');
   }
 
   if (result?.error?.status === 403) {
@@ -32,7 +33,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       refreshToken?.error?.status === 403 ||
       refreshToken?.error?.status === 401
     ) {
-      api.dispatch(api.endpoints.logout());
+      localStorage.removeItem('loggedInUser')
+      window.location.replace('/login')
     }
   }
   return result;
@@ -42,13 +44,5 @@ export const apiSlice = createApi({
   reducerPath: 'api',
   tagTypes: ['Posts', 'Comments'],
   baseQuery: baseQueryWithReauth,
-  // baseQuery: fetchBaseQuery({
-  //   baseUrl: 'https://bubble-fg8r.onrender.com/api/v1',
-  //   headers: {
-  //     credentials: 'include',
-  //     'Access-Control-Allow-Origin': 'https://bubble-seven.vercel.app',
-  //     'Access-Control-Allow-Credentials': true,
-  //   },
-  // }),
   endpoints: (builder) => ({}),
 });
