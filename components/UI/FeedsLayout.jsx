@@ -10,22 +10,30 @@ const FeedsLayout = ({ post }) => {
       gap={2}
       templateColumns={imageList.length > 1 ? 'repeat(2, 1fr)' : '1fr'}
     >
-      {imageList.map((image, i) => (
-        <GridItem key={i}>
-          <Image
-            id={post.id}
-            priority={true}
+      {imageList.map((image, i) =>
+        image.split('.')[1] === 'jpeg' ? (
+          <GridItem key={i}>
+            <Image
+              id={post.id}
+              priority={true}
+              src={`https://bubble-fg8r.onrender.com/img/${image}`}
+              alt='photo'
+              width={1000}
+              height={1000}
+              style={{
+                objectFit: 'fill',
+                width: '100%',
+              }}
+            />
+          </GridItem>
+        ) : (
+          <video
             src={`https://bubble-fg8r.onrender.com/img/${image}`}
-            alt='photo'
-            width={1000}
-            height={1000}
-            style={{
-              objectFit: 'fill',
-              width: '100%',
-            }}
+            controls
+            style={{ width: '100%', height: '100%' }}
           />
-        </GridItem>
-      ))}
+        )
+      )}
     </Grid>
   );
 };
