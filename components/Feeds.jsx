@@ -32,7 +32,7 @@ const Feeds = () => {
   let content;
 
   if (isLoading) content = <p>Loading...</p>;
-  else if (isError) content = <p>{error}</p>
+  else if (isError) content = <p>Something went wrong!</p>
   else if (isSuccess)
     content = (
       <>
