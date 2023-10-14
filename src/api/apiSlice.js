@@ -17,7 +17,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
   if (result?.error?.status === 401) {
     localStorage.removeItem('loggedInUser');
-    window.location.replace('/login');
+    // window.location.replace('/login');
   }
 
   if (result?.error?.status === 403) {
@@ -34,7 +34,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       refreshToken?.error?.status === 401
     ) {
       localStorage.removeItem('loggedInUser')
-      window.location.replace('/login')
+      // window.location.replace('/login')
     }
   }
   return result;
