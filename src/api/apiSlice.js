@@ -45,7 +45,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
 
       result = await baseQuery(args, api, extraOptions);
     } else if (
-      refreshToken?.error?.status === 403 ||
+      refreshToken.status === 'fail' || refreshToken?.error?.status === 403 ||
       refreshToken?.error?.status === 401
     ) {
       localStorage.removeItem('loggedInUser');
