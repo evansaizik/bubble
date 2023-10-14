@@ -16,7 +16,7 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   let result = await baseQuery(args, api, extraOptions);
 
   if (result?.error?.status === 401) {
-    console.log('error is from point 1')
+    console.log('error is from point 1');
     localStorage.removeItem('loggedInUser');
     // window.location.replace('/login');
   }
@@ -24,7 +24,10 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
   if (result?.error?.status === 403) {
     localStorage.removeItem('accessToken');
 
-    const refreshToken = await baseQuery('/users/refresh', api, extraOptions);
+    const refreshToken = await baseQuery('/users/refresh', api, {
+      method: 'GET',
+      credentials: 'include',
+    });
 
     if (refreshToken?.data?.accessToken) {
       localStorage.setItem('accessToken', refreshToken.data.accessToken);
@@ -34,8 +37,8 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       refreshToken?.error?.status === 403 ||
       refreshToken?.error?.status === 401
     ) {
-      console.log('error is from here point 2')
-      localStorage.removeItem('loggedInUser')
+      console.log('error is from here point 2');
+      localStorage.removeItem('loggedInUser');
       // window.location.replace('/login')
     }
   }
