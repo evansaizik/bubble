@@ -57,7 +57,11 @@ const FeedsList = ({ post }) => {
 
   return (
     <Box as='li' mb='40px' w='100%' listStyleType='none'>
-      <PostUserDetails time={post?.postedAt} name={post?.user.name} />
+      <PostUserDetails
+        time={post?.postedAt}
+        postId={post.id}
+        name={post?.user.name}
+      />
       <Box id={post.id} onClick={seeFullPost}>
         {post.media.length > 0 && <FeedsLayout post={post} />}
         <Text
