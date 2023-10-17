@@ -13,13 +13,14 @@ import {
   useDeletePostMutation,
   useEditPostMutation,
 } from '../src/api/postSlice';
+import TimeAgo from './TimeAgo';
 
 const PostUserDetails = ({ postId, time, name }) => {
   const [deletePost] = useDeletePostMutation();
 
   const deletePostHandler = (id) => {
-    deletePost(id)
-  }
+    deletePost(id);
+  };
 
   return (
     <Flex justifyContent={'space-between'}>
@@ -27,12 +28,10 @@ const PostUserDetails = ({ postId, time, name }) => {
         <Avatar name={name} />
         <Box>
           <Text fontWeight='bold'>{name}</Text>
-          <Text as='small'>{`Posted ${new Date(time).toLocaleDateString(
-            'en-US',
-            {
-              dayPeriod: 'long',
-            }
-          )}`}</Text>
+          <Text as='small'>
+            {`Posted `}
+            <TimeAgo timeStamp={time} />
+          </Text>
         </Box>
       </Flex>
       <Menu>
