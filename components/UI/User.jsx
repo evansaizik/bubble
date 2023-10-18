@@ -23,6 +23,8 @@ const User = () => {
   const logoutHandler = () => {
     logout();
     router.replace('/login');
+    localStorage.removeItem('loggedInUser');
+    localStorage.removeItem('accessToken');
   };
 
   return (
