@@ -1,23 +1,11 @@
 import { Box, Text, Flex, Grid, GridItem, Heading } from '@chakra-ui/layout';
 import Link from 'next/link';
 import classes from './MainLayout.module.css';
-import { Logout, Message, Notification, People } from 'iconsax-react';
+import { Message, Notification, People } from 'iconsax-react';
 import ProtectedRoute from '../ProtectedRoute';
-import { Button } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
-import { useLogoutMutation } from '../../src/api/userSlice';
+import User from './User';
 
 const MainLayout = ({ children }) => {
-  const router = useRouter();
-  const [logout] = useLogoutMutation();
-
-  const logoutHandler = () => {
-    // localStorage.removeItem('loggedInUser');
-    // localStorage.removeItem('accessToken');
-    logout()
-    // router.replace('/login');
-  };
-
   return (
     <>
       <ProtectedRoute>
@@ -65,11 +53,7 @@ const MainLayout = ({ children }) => {
               </Link>
             </Flex>
 
-            <Flex justifyContent='center' alignItems='center'>
-              <Button className={classes.link} onClick={logoutHandler}>
-                <Logout />
-              </Button>
-            </Flex>
+            <User />
           </Grid>
         </Grid>
         <Box className={classes.container}>

@@ -28,15 +28,6 @@ const baseQueryWithReauth = async (args, api, extraOptions) => {
       credentials: 'include',
     });
 
-    // const fetchRefreshToken = await fetch(
-    //   'https://bubble-fg8r.onrender.com/api/v1/users/refresh',
-    //   {
-    //     credentials: 'include',
-    //   }
-    // );
-
-    // const refreshToken = await fetchRefreshToken.json();
-
     if (refreshToken?.data?.accessToken) {
       localStorage.setItem('accessToken', refreshToken.data.accessToken);
 
