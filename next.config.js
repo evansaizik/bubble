@@ -5,9 +5,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'bubble-fg8r.onrender.com',
+        hostname: 'res.cloudinary.com',
         port: '',
-        pathname: '/img/*',
+        pathname: '/dgl66man1/image/upload/v1697722292/*',
       },
     ],
   },
