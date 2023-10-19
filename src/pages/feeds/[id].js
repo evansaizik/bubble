@@ -78,18 +78,32 @@ const PostId = () => {
         <Box>
           {post?.media && (
             <Grid gap={2} mb={'15px'}>
-              {post.media.map((image, i) => (
-                <GridItem key={i}>
-                  <Image
-                    priority={true}
-                    src={`https://bubble-fg8r.onrender.com/img/${image}`}
-                    alt='photo'
-                    width={1000}
-                    height={1000}
-                    style={{ width: '100%' }}
+              {post.media.map((image, i) =>
+                image.split('.')[1] === 'jpg' ? (
+                  <GridItem key={i}>
+                    <Image
+                      priority={true}
+                      src={`https://res.cloudinary.com/dgl66man1/image/upload/v1697722292/${image}`}
+                      alt='photo'
+                      width={1000}
+                      height={1000}
+                      style={{ width: '100%' }}
+                    />
+                  </GridItem>
+                ) : (
+                  <video
+                    key={i}
+                    src={`https://res.cloudinary.com/dgl66man1/video/upload/v1697731304/${image}`}
+                    controls={true}
+                    style={{
+                      width: '100%',
+                      aspectRatio: 4 / 3,
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
                   />
-                </GridItem>
-              ))}
+                )
+              )}
             </Grid>
           )}
           <Text
