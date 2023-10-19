@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import { Grid, GridItem } from '@chakra-ui/react';
-import { CloudinaryVideoPlayer } from 'next-cloudinary';
-import VideoPlayer from './VideoPlayer';
 
 const FeedsLayout = ({ post }) => {
   const imageList = post.media;
