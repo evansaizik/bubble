@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Grid, GridItem } from '@chakra-ui/react';
 import { CloudinaryVideoPlayer } from 'next-cloudinary';
+import VideoPlayer from './VideoPlayer';
 
 const FeedsLayout = ({ post }) => {
   const imageList = post.media;
@@ -28,11 +29,17 @@ const FeedsLayout = ({ post }) => {
             />
           </GridItem>
         ) : (
-          <iframe
-            src={`https://res.cloudinary.com/dgl66man1/image/upload/v1697722292/${image}`}
-            controls
-            style={{ width: '100%', height: '100%' }}
-          ></iframe>
+          <video
+            key={i}
+            src={`https://res.cloudinary.com/dgl66man1/video/upload/v1697731304/${image}`}
+            controls={true}
+            style={{
+              width: '100%',
+              aspectRatio: 4 / 3,
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
         )
       )}
     </Grid>
