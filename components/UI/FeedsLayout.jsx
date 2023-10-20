@@ -43,6 +43,26 @@ const FeedsLayout = ({ post }) => {
         ) : (
           <video
             key={i}
+            controls={true}
+            // muted
+            autoPlay
+            // loop
+            playsInline
+            style={{
+              width: '100%',
+              aspectRatio: 4 / 3,
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          >
+            <source
+              src={`https://res.cloudinary.com/dgl66man1/video/upload/v1697731304/${image}`}
+              type='video/mp4'
+            ></source>
+            Unsupported video format
+          </video>
+          /* <video
+            key={i}
             src={`https://res.cloudinary.com/dgl66man1/video/upload/v1697731304/${image}`}
             controls={true}
             style={{
@@ -51,7 +71,7 @@ const FeedsLayout = ({ post }) => {
               height: '100%',
               objectFit: 'cover',
             }}
-          />
+          /> */
         )
       )}
     </Grid>
