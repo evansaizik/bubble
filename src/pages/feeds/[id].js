@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from 'react';
-import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
 import { ChatBubbleIcon } from '@radix-ui/react-icons';
 import {
   Box,
@@ -30,6 +30,20 @@ const PostId = () => {
   const postId = router.query.id;
   const { data, isLoading, isSuccess, error } = useGetAPostQuery(postId);
 
+  const imageFormat = [
+    'jpg',
+    'jpeg',
+    'png',
+    'gif',
+    'webp',
+    'bmp',
+    'tiff',
+    'ico',
+    'heic',
+    'avif',
+    'svg',
+  ];
+
   const {
     data: commentData,
     isLoading: isLoadingComment,
@@ -40,11 +54,10 @@ const PostId = () => {
   const post = data?.data?.post;
   const comments = commentData?.data;
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     setUser(JSON.parse(localStorage?.getItem('loggedInUser')));
-    
   }, []);
 
   const likedColor = () => {
@@ -79,7 +92,7 @@ const PostId = () => {
           {post?.media && (
             <Grid gap={2} mb={'15px'}>
               {post.media.map((image, i) =>
-                image.split('.')[1] === 'jpg' ? (
+                imageFormat.includes(image.split('.')[1]) ? (
                   <GridItem key={i}>
                     <Image
                       priority={true}
@@ -87,7 +100,7 @@ const PostId = () => {
                       alt='photo'
                       width={1000}
                       height={1000}
-                      style={{ width: '100%' }}
+                      style={{ width: '100%', objectFit: 'fill' }}
                     />
                   </GridItem>
                 ) : (

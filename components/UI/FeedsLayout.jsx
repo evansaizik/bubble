@@ -4,6 +4,20 @@ import { Grid, GridItem } from '@chakra-ui/react';
 const FeedsLayout = ({ post }) => {
   const imageList = post.media;
 
+  const imageFormat = [
+    'jpg',
+    'jpeg',
+    'png',
+    'gif',
+    'webp',
+    'bmp',
+    'tiff',
+    'ico',
+    'heic',
+    'avif',
+    'svg',
+  ];
+
   return (
     <Grid
       mb={'15px'}
@@ -11,7 +25,7 @@ const FeedsLayout = ({ post }) => {
       templateColumns={imageList.length > 1 ? 'repeat(2, 1fr)' : '1fr'}
     >
       {imageList.map((image, i) =>
-        image.split('.')[1] === 'jpg' ? (
+        imageFormat.includes(image.split('.')[1]) ? (
           <GridItem key={i}>
             <Image
               id={post.id}
