@@ -4,6 +4,13 @@
 .feed {
   width: 100%;
 }
+.portal {
+  width: 100%;
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 50%);
+  z-index: 10;
+}
 .sidebar-left,
 .sidebar-right {
   display: none;
@@ -19,7 +26,6 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    /* grid-template-columns: repeat(4, 1fr); */
     gap: 20px;
     height: 92.5vh;
     position: static;
@@ -27,7 +33,6 @@
   .feed {
     display: block;
     grid-column: span 3;
-    /* grid-column: span 2; */
     overflow: scroll;
     scrollbar-width: none;
   }
@@ -39,4 +44,10 @@
     display: block;
     grid-column: span 2;
   }
+  .portal {
+  width: 40%;
+  position: fixed;
+  top: 50%;
+  left: calc(50% - 20%);
+}
 }

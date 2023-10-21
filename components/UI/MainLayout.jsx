@@ -8,6 +8,7 @@ import User from './User';
 const MainLayout = ({ children }) => {
   return (
     <>
+      <div id='portal' className={classes.portal}></div>
       <ProtectedRoute>
         <Grid
           w={'100%'}

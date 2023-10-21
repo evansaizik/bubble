@@ -1,10 +1,4 @@
-import {
-  Menu,
-  MenuButton,
-  Avatar,
-  MenuList,
-  MenuItem,
-} from '@chakra-ui/react';
+import { Menu, MenuButton, Avatar, MenuList, MenuItem } from '@chakra-ui/react';
 import { Logout, Profile } from 'iconsax-react';
 import { useLogoutMutation } from '../../src/api/userSlice';
 import { useRouter } from 'next/router';

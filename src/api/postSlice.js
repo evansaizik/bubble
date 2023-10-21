@@ -46,10 +46,10 @@ export const extendedPostApi = apiSlice.injectEndpoints({
       invalidatesTags: (result, error, arg) => [{ type: 'Posts', id: arg.id }],
     }),
     editPost: builder.mutation({
-      query: (post) => ({
-        url: `/posts/${post.id}`,
+      query: ({postId, formData}) => ({
+        url: `/posts/${postId}`,
         method: 'PATCH',
-        body: post,
+        body: formData,
       }),
       invalidatesTags: (result, error, arg) => [{ type: 'Posts', id: arg.id }],
     }),
