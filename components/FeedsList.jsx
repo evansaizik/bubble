@@ -58,7 +58,7 @@ const FeedsList = ({ post }) => {
   return (
     <Box as='li' mb='40px' w='100%' listStyleType='none'>
       <PostUserDetails post={post} />
-      <Box id={post.id} onClick={seeFullPost}>
+      <Box id={post.id} >
         {post.media.length > 0 && <FeedsLayout post={post} />}
         <Text
           id={post.id}
