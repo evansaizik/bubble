@@ -58,7 +58,7 @@ const FeedsList = ({ post }) => {
   return (
     <Box as='li' mb='40px' w='100%' listStyleType='none'>
       <PostUserDetails post={post} />
-      <Box id={post.id} >
+      <Box id={post.id}>
         {post.media.length > 0 && <FeedsLayout post={post} />}
         <Text
           id={post.id}
@@ -67,8 +67,12 @@ const FeedsList = ({ post }) => {
           maxH='50px'
           whiteSpace='wrap'
           overflow='hidden'
+          onClick={seeFullPost}
         >
-          {post?.post}
+          {post?.post} <br></br>
+          <Text fontSize={{ base: '10px', md: '12px' }} color={'gray'} as={'i'}>
+            ...see full post
+          </Text>
         </Text>
         <PostEngagements
           likes={post?.likes}
