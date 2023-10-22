@@ -45,7 +45,7 @@ const FeedsLayout = ({ post }) => {
             key={i}
             controls={true}
             // muted
-            autoPlay
+            // autoPlay
             // loop
             playsInline
             style={{

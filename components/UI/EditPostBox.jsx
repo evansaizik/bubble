@@ -37,6 +37,7 @@ const EditPostBox = ({ post, setPost, postId, editBox, showEditBox }) => {
       display={editBox ? 'flex' : 'none'}
     >
       <Input
+        id={'edit-input'}
         bg={'white'}
         as='textarea'
         border={'2px solid #D2DED5'}

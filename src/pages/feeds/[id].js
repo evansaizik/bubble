@@ -87,7 +87,7 @@ const PostId = () => {
   else if (isSuccess)
     content = (
       <>
-        <PostUserDetails time={post?.postedAt} name={post?.user.name} />
+        <PostUserDetails post={post} />
         <Box>
           {post?.media && (
             <Grid gap={2} mb={'15px'}>
