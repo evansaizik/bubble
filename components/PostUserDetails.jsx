@@ -17,7 +17,7 @@ import EditPostBox from './UI/EditPostBox';
 const PostUserDetails = ({ post }) => {
   const [deletePost] = useDeletePostMutation();
   const [editBox, setEditBox] = useState(false);
-  const [postToEdit, setPostToEdit] = useState(post.post);
+  const [postToEdit, setPostToEdit] = useState('');
 
   const deletePostHandler = (id) => {
     deletePost(id);
@@ -25,6 +25,7 @@ const PostUserDetails = ({ post }) => {
 
   const toggleEditBox = () => {
     setEditBox((prev) => !prev);
+    setPostToEdit(post.post);
   };
 
   return (
